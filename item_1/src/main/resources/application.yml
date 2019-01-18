@@ -1,0 +1,19 @@
+server:
+  #指定端口号
+  port: 8081
+  #指定context path
+  #server.context-path: /springboot
+
+spring:
+  profiles:
+    active: a
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://111.230.224.250:3306/mytest
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
