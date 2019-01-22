@@ -5,8 +5,6 @@ server:
   #server.context-path: /springboot
 
 spring:
-  profiles:
-    active: a
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://111.230.224.250:3306/mytest
