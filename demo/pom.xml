@@ -8,10 +8,10 @@
         <version>2.1.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.items</groupId>
-    <artifactId>item_1</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>item_1</name>
+    <name>demo</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -118,9 +118,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <executable>true</executable>
-                </configuration>
             </plugin>
 
             <!-- querydsl 插件 自动生成Qmodle，简化Criteria操作 -->
@@ -142,6 +139,8 @@
                 </executions>
             </plugin>
         </plugins>
+
+
     </build>
 
 </project>
