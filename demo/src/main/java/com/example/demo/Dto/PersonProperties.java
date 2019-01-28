@@ -1,4 +1,4 @@
-package com.items.item_1.Dto;
+package com.example.demo.Dto;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;

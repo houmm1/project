@@ -1,4 +1,4 @@
-package com.items.item_1.model;
+package com.example.demo.model;
 
 import javax.validation.Valid;
 import java.io.Serializable;

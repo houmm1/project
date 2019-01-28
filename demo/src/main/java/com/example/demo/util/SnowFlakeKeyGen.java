@@ -1,4 +1,4 @@
-package com.items.item_1.util;
+package com.example.demo.util;
 
 import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.context.EnvironmentAware;

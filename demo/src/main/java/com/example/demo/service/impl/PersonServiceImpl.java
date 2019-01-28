@@ -1,12 +1,10 @@
-package com.items.item_1.service.impl;
+package com.example.demo.service.impl;
 
-import com.google.common.collect.Lists;
-import com.items.item_1.Dao.PersonDAO;
-import com.items.item_1.Dto.ResultInfo;
-import com.items.item_1.model.Person;
-import com.items.item_1.model.QPerson;
-import com.items.item_1.service.PersonService;
-import com.items.item_1.util.SnowFlakeKeyGen;
+import com.example.demo.Dao.PersonDAO;
+import com.example.demo.Dto.ResultInfo;
+import com.example.demo.model.Person;
+import com.example.demo.service.PersonService;
+import com.example.demo.util.SnowFlakeKeyGen;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.core.types.dsl.BooleanExpression;
@@ -17,8 +15,12 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,8 +97,24 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> personList(Person per) throws Exception {
-        List<Person> list = personDAO.findPerson();
-       // List<Person> list = Lists.newArrayList(ite);
+        List<Person> list = personDAO.findAll(new Specification<Person>() {
+            @Override
+            public javax.persistence.criteria.Predicate toPredicate(Root<Person> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                List<javax.persistence.criteria.Predicate> list = new ArrayList<javax.persistence.criteria.Predicate>();
+                if (null != per.getName() && !"".equals(per.getName())) {
+                    list.add(criteriaBuilder.equal(root.get("name").as(String.class),
+                            per.getName()));
+                }
+                if (null != per.getAge() && !"".equals(per.getAge())) {
+                    list.add(criteriaBuilder.equal(root.get("age").as(String.class),
+                            per.getAge()));
+                }
+                //上架中的产品
+                list.add(criteriaBuilder.equal(root.get("age").as(String.class),per.getAge()));
+                javax.persistence.criteria.Predicate[] p = new javax.persistence.criteria.Predicate[list.size()];
+                return criteriaBuilder.and(list.toArray(p));
+            }
+        });
         return list;
     }
 
@@ -105,7 +123,7 @@ public class PersonServiceImpl implements PersonService {
      * @param  dto
      * @return
      */
-    private Predicate getInputCondition(Person dto) {
+    /*private Predicate getInputCondition(Person dto) {
         List<BooleanExpression> predicates = new ArrayList<>();
         if (null != dto.getName() && !"".equals(dto.getName())) {
             predicates.add(QPerson.person.name.eq(dto.getName()));
@@ -117,7 +135,7 @@ public class PersonServiceImpl implements PersonService {
         Predicate predicate=ExpressionUtils.allOf(predicates.toArray(new BooleanExpression[predicates.size()]));
         return predicate;
 
-    }
+    }*/
 
 
 }

@@ -1,10 +1,10 @@
-package com.items.item_1.util;
+package com.example.demo.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.parser.Feature;
-import com.items.item_1.model.PageJSON;
+import com.example.demo.model.PageJSON;
 import org.apache.commons.lang3.StringUtils;
 
 

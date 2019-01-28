@@ -1,5 +1,6 @@
-package com.items.item_1.Dao;
-import com.items.item_1.model.Person;
+package com.example.demo.Dao;
+import com.example.demo.model.Person;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -17,4 +18,12 @@ public interface PersonDAO extends JpaRepository<Person,Integer>{
      */
     @Query(value = "select * from person",nativeQuery = true)
     List<Person> findPerson();
+
+    /**
+     * 分页
+     * @param specification
+     * @param specification
+     * @return
+     */
+    List<Person> findAll(Specification<Person> specification);
 }

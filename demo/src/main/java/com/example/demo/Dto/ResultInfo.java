@@ -1,6 +1,6 @@
-package com.items.item_1.Dto;
+package com.example.demo.Dto;
 
-import com.items.item_1.model.Person;
+import com.example.demo.model.Person;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 

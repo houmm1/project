@@ -1,10 +1,9 @@
-package com.items.item_1.BaseController;
+package com.example.demo.BaseController;
 
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.parser.Feature;
-
-import com.items.item_1.model.PageJSON;
-import com.items.item_1.util.JsonUtils;
+import com.example.demo.model.PageJSON;
+import com.example.demo.util.JsonUtils;
 import org.apache.commons.lang3.StringUtils;
 
 public class BaseController {

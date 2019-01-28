@@ -1,7 +1,8 @@
-package com.items.item_1.service;
+package com.example.demo.service;
 
 
-import com.items.item_1.model.Person;
+import com.example.demo.model.Person;
+
 import java.io.InputStream;
 import java.util.List;
 
